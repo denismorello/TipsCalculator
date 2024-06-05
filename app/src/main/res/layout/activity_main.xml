@@ -61,6 +61,38 @@
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <RadioGroup
+        android:id="@+id/rg_percentage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/til_number_of_people"
+        app:layout_constraintStart_toStartOf="@+id/til_number_of_people"
+        app:layout_constraintTop_toBottomOf="@+id/til_number_of_people">
+
+        <RadioButton
+            android:id="@+id/rb_option_one"
+            android:text="10%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/rb_option_two"
+            android:text="15%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/rb_option_three"
+            android:text="20%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RadioGroup>
+    
     <Button
         android:id="@+id/btn_clean"
         android:layout_width="0dp"
@@ -70,7 +102,7 @@
         android:text="Limpar"
         app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
         app:layout_constraintStart_toStartOf="@+id/til_number_of_people"
-        app:layout_constraintTop_toBottomOf="@+id/til_number_of_people" />
+        app:layout_constraintTop_toBottomOf="@+id/rg_percentage" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_guideline"
@@ -88,6 +120,6 @@
         android:text="Calcular"
         app:layout_constraintEnd_toEndOf="@+id/til_number_of_people"
         app:layout_constraintStart_toEndOf="@+id/vertical_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/til_number_of_people" />
+        app:layout_constraintTop_toBottomOf="@+id/rg_percentage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
