@@ -1,5 +1,6 @@
 package com.example.tipscalculator
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -34,13 +35,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        enableEdgeToEdge()
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         var percentage: Int = 0
 
@@ -69,6 +64,9 @@ class MainActivity : AppCompatActivity() {
             binding.rbOptionOne.isChecked = false
             binding.rbOptionTwo.isChecked = false
             binding.rbOptionThree.isChecked = false
+
+            val intent = Intent(this, SummaryActivity::class.java)
+            startActivity(intent)
         }
 
         val adapter = ArrayAdapter.createFromResource(
