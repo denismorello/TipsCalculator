@@ -1,8 +1,6 @@
 package com.example.tipscalculator
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,12 +14,16 @@ class MainActivity : AppCompatActivity() {
     //Valor total da conta
     //Numero de pessoas
     //Porcentagem da gorjeta
-        //10%, 15% ou 20%
+    //10%, 15% ou 20%
     //Calular
     //Limpar
 
     //Recuperar as views do layout
-        //ViewBinding
+    //ViewBinding
+
+    //Recuperar os radio buttons
+    //Calculo da tip
+    //Calculo do resultado
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,15 +38,39 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        var percentage: Int = 0
 
-        val tieTotal: TextInputEditText = findViewById(R.id.tie_total) //Posso declarar o tipo após a variável
-        val tieNumberOfPeople: TextInputEditText = findViewById(R.id.tie_number_of_people)
-        val btnClean = findViewById<Button>(R.id.btn_clean) //posso declarar o tipo no findViewById
-        val btnCalculate = findViewById<Button>(R.id.btn_calculate)
+        binding.rbOptionOne.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                percentage = 10
+            }
+        }
+
+        binding.rbOptionTwo.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                percentage = 15
+            }
+        }
+
+        binding.rbOptionThree.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                percentage = 20
+            }
+        }
 
         binding.btnClean.setOnClickListener {
             println()
         }
+
+        binding.btnCalculate.setOnClickListener {
+            val totalTable: Float = binding.tieTotal.text.toString().toFloat()
+            val nPeople: Int = binding.tieNumberOfPeople.text.toString().toInt()
+
+            val total = (((totalTable * percentage) / 100) + totalTable) / nPeople
+            binding.tvResult.text = "Total with tips: $total"
+
+        }
+
 
     }
 }
