@@ -1,12 +1,16 @@
 package com.example.tipscalculator
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tipscalculator.databinding.ActivityMainBinding
-import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.snackbar.Snackbar
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,15 +63,57 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnClean.setOnClickListener {
-            println()
+            binding.tvResult.text = ""
+            binding.tieTotal.setText("")
+
+            binding.rbOptionOne.isChecked = false
+            binding.rbOptionTwo.isChecked = false
+            binding.rbOptionThree.isChecked = false
         }
 
-        binding.btnCalculate.setOnClickListener {
-            val totalTable: Float = binding.tieTotal.text.toString().toFloat()
-            val nPeople: Int = binding.tieNumberOfPeople.text.toString().toInt()
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.num_people,
+            android.R.layout.simple_spinner_item
+        )
 
-            val total = (((totalTable * percentage) / 100) + totalTable) / nPeople
-            binding.tvResult.text = "Total with tips: $total"
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerNumberOfPeople.adapter = adapter
+
+        var numOfPeopleSelected = 0
+        binding.spinnerNumberOfPeople.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    numOfPeopleSelected = position
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+
+            }
+
+        binding.btnCalculate.setOnClickListener {
+            val totalTableTemp = binding.tieTotal.text
+
+            if (totalTableTemp?.isEmpty() == true) { //Verifica se algum dos campos está vazio
+                Snackbar.make(binding.tieTotal, "Preencha todos os campos", Snackbar.LENGTH_LONG)
+                    .show()
+
+            } else {
+                val totalTable: Float = totalTableTemp.toString().toFloat()
+                val nPeople: Int = numOfPeopleSelected
+
+                val total = (((totalTable * percentage) / 100) + totalTable) / nPeople
+                binding.tvResult.text = "Total with tips: $total"
+
+            }
+
 
         }
 
