@@ -58,16 +58,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnClean.setOnClickListener {
-            binding.tvResult.text = ""
-            binding.tieTotal.setText("")
-
-            binding.rbOptionOne.isChecked = false
-            binding.rbOptionTwo.isChecked = false
-            binding.rbOptionThree.isChecked = false
-
-            val intent = Intent(this, SummaryActivity::class.java)
-            startActivity(intent)
+            clean()
         }
+
+
 
         val adapter = ArrayAdapter.createFromResource(
             this,
@@ -108,13 +102,29 @@ class MainActivity : AppCompatActivity() {
                 val nPeople: Int = numOfPeopleSelected
 
                 val total = (((totalTable * percentage) / 100) + totalTable) / nPeople
-                binding.tvResult.text = "Total with tips: $total"
 
+
+                val intent = Intent(this, SummaryActivity::class.java) //Utilizado para levar informações de uma Activity para outra
+                intent.apply {
+                    putExtra("totalTable", totalTable)
+                    putExtra("numPeople", numOfPeopleSelected)
+                    putExtra("percentage", percentage)
+                    putExtra("totalAmount", total)
+                }
+                clean()
+                startActivity(intent)
             }
 
 
         }
 
 
+    }
+
+    fun clean () {
+        binding.tieTotal.setText("")
+        binding.rbOptionOne.isChecked = false
+        binding.rbOptionTwo.isChecked = false
+        binding.rbOptionThree.isChecked = false
     }
 }
