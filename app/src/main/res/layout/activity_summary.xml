@@ -9,11 +9,11 @@
 
     <TextView
         android:id="@+id/textView"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="Summary"
-        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,8 +21,8 @@
         android:id="@+id/tv_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Veja abaixo um resumo da sua conta"
         android:layout_marginTop="8dp"
+        android:text="Veja abaixo um resumo da sua conta"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -30,16 +30,16 @@
         android:id="@+id/tv_total_table_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total table: "
         android:layout_marginTop="32sp"
+        android:text="Total table: "
         app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
         app:layout_constraintTop_toBottomOf="@+id/tv_subtitle" />
 
     <TextView
         android:id="@+id/tv_total_table"
-        android:layout_marginEnd="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_total_table_label"
         tools:text="R$ 250,00" />
@@ -48,16 +48,16 @@
         android:id="@+id/tv_num_people_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Num of people:"
         android:layout_marginTop="32sp"
+        android:text="Num of people:"
         app:layout_constraintStart_toStartOf="@+id/tv_total_table_label"
         app:layout_constraintTop_toBottomOf="@+id/tv_total_table_label" />
 
     <TextView
         android:id="@+id/tv_num_people"
-        android:layout_marginEnd="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_num_people_label"
         tools:text="5" />
@@ -66,16 +66,16 @@
         android:id="@+id/tv_percentage_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Percentage:"
         android:layout_marginTop="32sp"
+        android:text="Percentage:"
         app:layout_constraintStart_toStartOf="@+id/tv_num_people_label"
         app:layout_constraintTop_toBottomOf="@+id/tv_num_people_label" />
 
     <TextView
         android:id="@+id/tv_percentage"
-        android:layout_marginEnd="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_percentage_label"
         tools:text="15%" />
@@ -84,30 +84,30 @@
         android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_percentage_label" />
 
     <TextView
         android:id="@+id/tv_total_amount_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TOTAL:"
         android:layout_marginTop="16dp"
+        android:text="TOTAL:"
         app:layout_constraintStart_toStartOf="@+id/separator"
         app:layout_constraintTop_toBottomOf="@+id/separator" />
 
     <TextView
         android:id="@+id/tv_total_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_total_amount_label"
         tools:text="R$ 57,00" />
