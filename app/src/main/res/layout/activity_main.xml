@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Tips Calculator"
+        android:text="@string/tips_calculator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Preencha os campos abaixo para realizar o cálculo da sua conta:"
+        android:text="@string/main_subtitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
@@ -33,7 +33,7 @@
         android:layout_marginTop="64dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Digite o valor da conta:"
+        android:text="@string/table_amount_label"
         app:layout_constraintStart_toStartOf="@+id/tv_subtitle"
         app:layout_constraintTop_toBottomOf="@+id/tv_subtitle" />
 
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingStart="0dp"
-            android:hint="Ex: R$ 1000,00"
+            android:hint="@string/table_amount_hint"
             android:inputType="numberDecimal"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -64,7 +64,7 @@
         android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Número de pessoas:"
+        android:text="@string/num_people_label"
         app:layout_constraintStart_toStartOf="@+id/til_total"
         app:layout_constraintTop_toBottomOf="@+id/til_total" />
 
@@ -83,7 +83,7 @@
             android:id="@+id/tie_number_of_people"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Ex: 4"
+            android:hint="@string/num_people_hint"
             android:maxLength="2"
             android:inputType="number"
             android:paddingStart="0dp"
@@ -96,7 +96,7 @@
         android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Porcentagem da gorjeta:"
+        android:text="@string/percentage_label"
         app:layout_constraintStart_toStartOf="@+id/til_number_of_people"
         app:layout_constraintTop_toBottomOf="@+id/til_number_of_people" />
 
@@ -115,7 +115,7 @@
             android:id="@+id/tie_percentage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Ex: 10%"
+            android:hint="@string/percentage_tip_hint"
             android:inputType="number"
             android:maxLength="3"
             android:paddingStart="0dp"
@@ -132,7 +132,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="16dp"
-        android:text="Limpar"
+        android:text="@string/clean"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
         app:layout_constraintStart_toStartOf="parent" />
@@ -151,7 +151,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Calcular"
+        android:text="@string/calculate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/vertical_guideline" />
